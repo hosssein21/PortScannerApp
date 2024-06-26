@@ -49,7 +49,7 @@ The Network Port Scanner is a Python-based tool designed to scan a specified ran
     Install Npcap:
         For Windows users, download and install Npcap from Npcap's official website.
 
-Usage
+## Usage
 
     Configure the Scanning Parameters:
 
@@ -71,7 +71,7 @@ bash
 
     python scanner.py
 
-Output
+## Output
 
 The script outputs the scan results to the console, indicating the status of each port and any banners retrieved from open ports.
 
@@ -96,7 +96,7 @@ Port Range: 20-26
 ...
 </code>
 </pre>
-Testing
+## Testing
 
 This project includes unit tests to ensure functionality. Tests are written using unittest and unittest.mock.
 Running Tests
@@ -137,7 +137,7 @@ Figure 1: Network diagram illustrating the IP range and devices being scanned.
 Contributing
 
 Contributions are welcome! Submit a pull request or open an issue on GitHub.
-License
+ ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 Disclaimer
