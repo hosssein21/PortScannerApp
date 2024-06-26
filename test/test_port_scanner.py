@@ -5,7 +5,7 @@ import socket
 from scapy.all import IP, TCP, conf
 
 # Import the classes from the original script
-from port_scanner import PortScanner, NetworkScanner
+from NetworkScanner import PortScanner,NetworkScanner
 
 class TestPortScanner(unittest.TestCase):
     def setUp(self):
