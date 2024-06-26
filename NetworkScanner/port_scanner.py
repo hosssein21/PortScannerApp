@@ -74,4 +74,33 @@ class PortScanner:
         if not self.open_ports:
             print("No ports were open.")
 
+class NetworkScanner:
+    def __init__(self, ip_range, port_range, num_threads=100):
+        self.ip_range = self.generate_ip_range(ip_range)
+        self.port_range = port_range
+        self.num_threads = num_threads
 
+    def generate_ip_range(self, ip_range):
+        ip_start, ip_end = ip_range
+        start = int(ipaddress.IPv4Address(ip_start))
+        end = int(ipaddress.IPv4Address(ip_end))
+        return [str(ipaddress.IPv4Address(ip)) for ip in range(start, end + 1)]
+
+    def run(self):
+        for ip in self.ip_range:
+            print(f"=======================\nScanning IP: {ip}\nPort Range: {self.port_range[0]}-{self.port_range[1]}\n=======================")
+            scanner = PortScanner(ip, self.port_range, self.num_threads)
+            scanner.run()
+
+if __name__ == "__main__":
+    ip_start = "192.168.1.1"  # Start IP address
+    ip_end = "192.168.1.10"  # End IP address
+    start_port = 20
+    end_port = 26
+    num_threads = 100
+
+    ip_range = (ip_start, ip_end)
+    port_range = (start_port, end_port)
+
+    network_scanner = NetworkScanner(ip_range, port_range, num_threads)
+    network_scanner.run()
